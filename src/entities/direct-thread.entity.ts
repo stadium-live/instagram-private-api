@@ -31,12 +31,12 @@ export class DirectThreadEntity extends Entity {
    * This was added to only require `url-regex-safe` if it's necessary as it may cause problems (See #1328).
    */
   public async broadcastText(text: string, skipLinkCheck?: boolean) {
-    if (!skipLinkCheck) {
-      const urls = text.match(require('url-regex-safe')({ strict: false }));
-      if (urls instanceof Array) {
-        return this.broadcastLink(text, urls);
-      }
-    }
+    // if (!skipLinkCheck) {
+    //   const urls = text.match(require('url-regex-safe')({ strict: false }));
+    //   if (urls instanceof Array) {
+    //     return this.broadcastLink(text, urls);
+    //   }
+    // }
     return await this.broadcast({
       item: 'text',
       form: {
